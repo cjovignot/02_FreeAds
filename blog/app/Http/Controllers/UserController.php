@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $users = Users::all();
 
-        echo "blabla";
+
         return view('welcome')->with('users', $users);
     }
 }
