@@ -1,12 +1,8 @@
-<style>
-    table tr td {
-        border: 1px solid black;
-    }
+@extends('layouts.freeadds_layout')
 
-    h1 {
-        color: blue;
-    }
-</style>
+@section('content')
+
+{{ HTML::style('css/stylesheet.css'); }}
 
 
 
@@ -14,29 +10,7 @@
 
 
 
-<!-- <p>This is the category table:
 
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>parent ID</td>
-        <td>Is Sub</td>
-        <td>Update</td>
-        <td>Delete</td>
-    </tr>
-    @foreach ($categories as $category)
-    <tr>
-        <td>{{ $category->id }}</td>
-        <td>{{ $category->name }}</td>
-        <td>{{ $category->parent_id }}</td>
-        <td>{{ $category->is_sub }}</td>
-        <td><a href="">MAJ</a></td>
-        <td><a href="">X</a></td>
-    </tr>
-
-    @endforeach
-</table> -->
 
 
 <div class="container mt-2">
@@ -86,3 +60,4 @@
     </table>
 
 </div>
+@endsection
