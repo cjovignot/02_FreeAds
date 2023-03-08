@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Category is_sub:</strong>
                         <input type="number" name="is_sub" class="form-control" placeholder="Category is_sub">
@@ -41,13 +41,17 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>
+                </div> -->
+
+                {{dd($category)}}
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Category parent_id:</strong>
-                        <select>
-
-
+                        <select name="parent_id">
+                            <option value="0"></option>
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
                         </select>
 
 
@@ -59,7 +63,7 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type=" submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>
     </div>
