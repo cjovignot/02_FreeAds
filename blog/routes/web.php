@@ -19,9 +19,9 @@ use App\Http\Controllers\Authmanager;
 */
 
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('/admin', function () {
     return view('admin.index');
@@ -43,10 +43,10 @@ Route::resource('categories', CategoriesController::class);
 
 
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('welcome');
-})->name('home');
+//     return view('welcome');
+// })->name('home');
 
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
