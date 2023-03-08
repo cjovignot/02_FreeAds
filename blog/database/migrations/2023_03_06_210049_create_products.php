@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('category_id');
             $table->integer('price');
+            $table->string('image_path')->nullable();
+            $table->integer('category_id');
+            $table->integer('sub_category_id')->nullable();
+            $table->integer('created_by');
             $table->timestamps();
         });
     }

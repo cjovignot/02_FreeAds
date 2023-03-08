@@ -4,6 +4,9 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+// COSME
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('categories', CategoriesController::class);
+
+// COSME
+Route::get('', [ProductController::class, 'display_products']);
+Route::get('{id}', [ProductController::class, 'show']);
