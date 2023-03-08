@@ -1,0 +1,53 @@
+.container {
+    border: 1px solid black;
+    width: 100%;
+    
+}
+
+.content{
+    display: flex;
+  
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.filter {
+
+    width: 20%;
+    height: 100¨M;
+}
+
+.product {
+
+    width: 80%;
+
+
+}
+
+.img {
+    width: 20%
+}
+
+.product {
+    width: 100%;
+}
+
+.price {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.productcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.display{
+    width: 100%;
+}
