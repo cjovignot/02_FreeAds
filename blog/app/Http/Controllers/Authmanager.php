@@ -9,6 +9,18 @@ use App\Models\User;
 
 class Authmanager extends Controller
 {
+    public function index() {
+
+        $users = User::all();
+       // $title = 'Mon super titre';
+       // return view('articles', compact ('title')); compact envoie le title qu'on peut recuperer ds une vue avec {$title{}}
+       // return view('articles')-> with('title', $title); mm chose qu'au dessu
+
+       return view('articles', [
+       'posts' => $posts
+   ]);
+   }
+    
     public function login() {
 
         return view('login');

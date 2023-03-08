@@ -29,14 +29,24 @@ Route::get('/admin', function () {
 Route::resource('categories', CategoriesController::class);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', function () {
 
     return view('welcome');
 })->name('home');
-
-
-
-
 
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
