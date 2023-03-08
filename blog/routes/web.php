@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\Authmanager;
+
 
 // COSME
 use App\Http\Controllers\ProductController;
@@ -18,14 +21,30 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+// tutut
+Route::get('/', function () {
+    return view('home');
+});
 
-// Route::resource('categories', CategoriesController::class);
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+Route::resource('categories', CategoriesController::class);
 
-// COSME
-// Route::get('', [ProductController::class, 'display_products']);
-
-// Route::get('{id}', [ProductController::class, 'show']);
+// Cosme route
 Route::resource('products', ProductController::class);
+
+
+//Seb route
+
+// Route::get('/', function () {
+
+    //     return view('welcome');
+    // })->name('home');
+    
+    
+    Route::get('/login', [AuthManager::class, 'login'])->name('login');
+    Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+    Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
+    Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
+    Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
