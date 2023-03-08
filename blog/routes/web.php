@@ -19,4 +19,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin', function () {
+    return view('admin.index');
+});
 Route::resource('categories', CategoriesController::class);
