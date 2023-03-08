@@ -18,12 +18,14 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::resource('categories', CategoriesController::class);
+// Route::resource('categories', CategoriesController::class);
 
 // COSME
-Route::get('', [ProductController::class, 'display_products']);
-Route::get('{id}', [ProductController::class, 'show']);
+// Route::get('', [ProductController::class, 'display_products']);
+
+// Route::get('{id}', [ProductController::class, 'show']);
+Route::resource('products', ProductController::class);

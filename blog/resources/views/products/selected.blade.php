@@ -9,12 +9,12 @@
 <body>
     <h1>{{ $product->name }}</h1>
 
+<img style="height: 300px; width: 300px;" src="{{ URL::asset($product->image_path) }}">
 <p>Product ID : {{ $product->id }}</p>
 <p>Product description : {{ $product->description }}</p>
 <p>Product category ID : {{ $product->category_id }}</p>
 <p>Product Sub category ID : {{ $product->sub_category_id }}</p>
 <p>Product price : {{ $product->price }} €</p>
-<p>Product image path : {{ $product->image_path }}</p>
 <p>Product creator ID : {{ $product->created_by }}</p>
 
 
