@@ -10,6 +10,7 @@ use App\Http\Controllers\Authmanager;
 // COSME
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PictureController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+
+
+Route::resource('admin', AdminController::class);
+
 Route::resource('categories', CategoriesController::class);
 
 // Cosme route

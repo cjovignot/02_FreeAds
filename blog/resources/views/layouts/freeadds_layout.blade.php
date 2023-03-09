@@ -23,7 +23,7 @@
             <a href="">
                 <div>login</div>
             </a>
-            <a href="../categories">
+            <a href="../admin">
                 <div>admin</div>
             </a>
 
