@@ -9,6 +9,7 @@ use App\Http\Controllers\Authmanager;
 
 // COSME
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PictureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::resource('categories', CategoriesController::class);
 
 // Cosme route
 Route::resource('products', ProductController::class);
+// Cosme Picture Upload
+Route::get('picture_upload', [ PictureController::class, 'index' ]);
+Route::post('picture_upload', [ PictureController::class, 'store' ])->name('image.store');
 
 
 //Seb route
@@ -43,8 +47,8 @@ Route::resource('products', ProductController::class);
     // })->name('home');
     
     
-    Route::get('/login', [AuthManager::class, 'login'])->name('login');
-    Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
-    Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
-    Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
-    Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+Route::get('/login', [AuthManager::class, 'login'])->name('login');
+Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
+Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');

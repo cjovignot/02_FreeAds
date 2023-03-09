@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use App\Models\Categories;
+
 
 class ProductController extends Controller
 {
@@ -31,7 +33,10 @@ class ProductController extends Controller
         */
         public function create()
         {
-            return view('products.create');
+            $categories = Categories::all()->where('is_sub', '=', '0');
+            $sub_categories = Categories::all()->where('is_sub', '=', '1')->where('parent_id', '!=', '0');
+
+            return view('products.create', compact('categories', 'sub_categories'));
         }
     
         /**
@@ -71,6 +76,9 @@ class ProductController extends Controller
                 'name' => 'required',
                 'description' => 'required',
                 'price' => 'required',
+                'category_id' => 'required',
+                'sub_category_id' => 'required',
+                'image',
             ]);
             
             $product->fill($request->post())->save();
