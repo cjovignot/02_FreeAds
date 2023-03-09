@@ -18,12 +18,15 @@ class ProductController extends Controller
         public function index()
         {
             $products = Product::all();
-            return view('products.index', compact('products'));
+            $categories = Categories::all();
+            return view('products.index', compact('products', 'categories'));
         }
     
         public function show(Product $product)
         {
-            return view('products.selected',compact('product'));
+            $categories = Categories::all();
+            $sub_categories = Categories::all()->where('is_sub', '=', '1')->where('parent_id', '!=', '0');
+            return view('products.selected',compact('product', 'categories'));
         }
 
 
@@ -45,16 +48,28 @@ class ProductController extends Controller
         */
         public function store(Request $request)
         {
+            
             $request->validate([
                 'name' => 'required',
                 'description' => 'required',
                 'price' => 'required',
                 'category_id' => 'required',
+                'image' => 'required',
                 
             ]);
+
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $imageName = time().'.'.$request->image->extension();
+       
+            $request->image->move(public_path('img_source'), $imageName);
+            
             $request['created_by'] = 1; // will contain current user id (in this case: admin)
+            $request['image_path'] = '/img_source/' . $imageName;
             Product::create($request->post());
-    
+            
             return redirect()->route('products.index')->with('success','Product has been created successfully.');
         }
     
@@ -78,7 +93,6 @@ class ProductController extends Controller
                 'price' => 'required',
                 'category_id' => 'required',
                 'sub_category_id' => 'required',
-                'image',
             ]);
             
             $product->fill($request->post())->save();

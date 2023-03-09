@@ -31,6 +31,8 @@
                     <th>Product Name</th>
                     <th>Product Description</th>
                     <th>Product Price</th>
+                    <th>Category ID</th>
+                    <th>Cat Name</th>
                     <th>Created By</th>
                     <th>Picture</th>
                     <th>Action</th>
@@ -43,6 +45,12 @@
                         <td><a href="{{route('products.show', $product->id)}}">{{ $product->name }}</a></td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->price }}</td>
+                        <td>{{ $product->category_id }}</td>
+                        @foreach ($categories as $category)
+                            @if($category->id == $product->category_id)
+                                <td>{{ $category->name }}</td>
+                            @endif
+                        @endforeach
                         <td>{{ $product->created_by }}</td>
                         <td><img style="height: 100px; width: 100px;" src="{{ URL::asset($product->image_path) }}"></td>
                         <td>
