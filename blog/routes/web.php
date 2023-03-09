@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\Authmanager;
+use App\Http\Controllers\FreeadsUserController;
 
 
 // COSME
@@ -39,6 +40,10 @@ Route::get('picture_upload', [ PictureController::class, 'index' ]);
 Route::post('picture_upload', [ PictureController::class, 'store' ])->name('image.store');
 
 
+
+
+
+
 //Seb route
 
 // Route::get('/', function () {
@@ -52,3 +57,4 @@ Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+Route::resource('users', FreeadsUserController::class);
