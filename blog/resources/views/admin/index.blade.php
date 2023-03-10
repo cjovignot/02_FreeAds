@@ -1,39 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 @extends('layouts.freeadds_layout')
 
 @section('content')
 
-<link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
+<h4 style="position: fixed;z-index: 999;left: 20px;top: 8px;color: white;">ADMIN PANEL</h4>
 
-
-<div>
-    <h1>THIS IS THE admin PANEL</h1>
-</div>
-
-<div class="container">
+<div style="display:flex; justify-content:center; width:100%; margin-top:100px; border: none;" class="container">
     <div class="flex">
 
-        <div class="border filter">
 
-            @include('layouts.adminmenu')
+        @include('layouts.adminmenu')
 
-
-        </div>
-
-        <div class="border productcontainer">
-            <tr>
-                <th>USERS</th>
-                    <td></td>
-                <th>ADMINS</th>
-                <th>CATEGORIES</th>
-                <th>PRODUCTS</th>
-            </tr>
-            <tr>
-                <td>QTE_USERS</td>
-                <td>QTE_ADMINS</td>
-                <td>QTE_CATEGORIES</td>
-                <td>QTE_PRODUCTS</td>
-            </tr>
-        </div>
     </div>
 </div>
 @endsection

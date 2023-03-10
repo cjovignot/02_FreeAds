@@ -27,7 +27,7 @@ use App\Http\Controllers\NewHomeController;
 */
 
 // tutut
-Route::get('home', [NewHomeController::class, 'show']);
+Route::get('', [NewHomeController::class, 'show']);
 
 Route::resource('admin', AdminController::class);
 
