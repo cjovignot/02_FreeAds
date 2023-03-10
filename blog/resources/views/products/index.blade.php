@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>My products</title>
+    
 </head>
 
 <style>th{border:1px black solid; width=280px;}td{border:1px black solid;}</style>

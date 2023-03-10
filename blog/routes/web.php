@@ -12,6 +12,8 @@ use App\Http\Controllers\FreeadsUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NewHomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +27,7 @@ use App\Http\Controllers\AdminController;
 */
 
 // tutut
-Route::get('/', function () {
-    return view('home');
-});
-
-
+Route::get('home', [NewHomeController::class, 'show']);
 
 Route::resource('admin', AdminController::class);
 
@@ -50,8 +48,8 @@ Route::post('picture_upload', [ PictureController::class, 'store' ])->name('imag
 
 // Route::get('/', function () {
 
-    //     return view('welcome');
-    // })->name('home');
+//         return view('welcome');
+//     })->name('home');
     
     
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
