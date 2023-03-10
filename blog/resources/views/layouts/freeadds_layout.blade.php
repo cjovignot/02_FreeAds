@@ -21,7 +21,10 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="/" class="waves-effect waves-light btn">Home</a></li>
                 <li><a href="/login" class="waves-effect waves-light btn">Login</a></li>
+                <li><a href="/registration" class="waves-effect waves-light btn">Register</a></li>
                 <li><a href="/admin" class="waves-effect waves-light btn">Admin</a></li>
+                <button action="{{ route('logout') }}" style="margin: 10px;" class="btn btn-primary ml-3" type="submit">Logout</button>
+                
             </ul>
             </div>
         </nav>

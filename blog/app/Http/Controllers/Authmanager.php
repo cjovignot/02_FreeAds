@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Http\Controllers\NewHomeController;
 
 class Authmanager extends Controller
 {
@@ -33,14 +34,14 @@ class Authmanager extends Controller
 
     public function loginPost(Request $request) {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            // 'name' => 'required',
+            'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'password');
         if(Auth::attempt($credentials)) {
 
-            return redirect()->intended(route('home'));
+            return redirect('')->with("success", "Connection success");
         }
         return redirect(route('login'))->with("error", "login details are not valid");
     }
@@ -59,7 +60,7 @@ class Authmanager extends Controller
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $data['phone_number'] = $request->phone_number;
-        $date['admin'] = '0';
+        $data['admin'] = '0';
 
         $user = User::create($data);
         if(!$user) {

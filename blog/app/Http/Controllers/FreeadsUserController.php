@@ -46,14 +46,15 @@ class FreeadsUserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'phone_number' => 'required',
         ]);
 
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $data['admin'] = '0';
-
+        $data['phone_number'] = $request->phone_number;
         
         //User::create($request->post());
         $user = User::create($data);
