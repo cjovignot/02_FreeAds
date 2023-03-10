@@ -1,25 +1,18 @@
+@extends('layouts.freeadds_layout')
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit User Form - Laravel 9 CRUD Tutorial</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
+<h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">EDIT USER</h4>
+
 <body>
-    <div class="container mt-2">
-        <div class="row">
-            <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Edit User</h2>
-                </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('users.index') }}" enctype="multipart/form-data">
-                        Back</a>
-                </div>
-            </div>
-        </div>
+    <div style="width: 60%; height: 86vh; display:flex; justify-content:center; margin-top:100px; flex-direction: column; border: none;" class="container">
+
         @if(session('status'))
         <div class="alert alert-success mb-1 mt-1">
             {{ session('status') }}
@@ -74,7 +67,10 @@
                     </div>
                 </div>
                
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <div style="justify-content: space-between; display: flex;">
+                    <a class="btn btn-primary" href="{{ route('users.index') }}" enctype="multipart/form-data">Back</a>
+                    <button style="margin: 10px;" type="submit" class="btn btn-primary ml-3" type="submit">Submit</button>
+                </div>
             </div>
         </form>
     </div>
