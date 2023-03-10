@@ -1,8 +1,14 @@
+@extends('layouts.freeadds_layout')
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Add category Form - Laravel 9 CRUD</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Create category</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
+
+<h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">CREATE CATEGORY</h4>
 
 <body>
     <div class="container mt-2">
@@ -33,15 +39,6 @@
                         @enderror
                     </div>
                 </div>
-                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Category is_sub:</strong>
-                        <input type="number" name="is_sub" class="form-control" placeholder="Category is_sub">
-                        @error('is_sub')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div> -->
 
 
                 <div class="col-xs-12 col-sm-12 col-md-12">

@@ -1,4 +1,7 @@
 @extends('layouts.freeadds_layout')
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Edit category</title>
@@ -8,10 +11,8 @@
 <h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">EDIT CATEGORY</h4>
 
 <body>
-    <div style="display:flex; justify-content:center; width:100%; margin-top:100px; flex-direction: column; border: none;" class="container">
-        <div class="container mt-2">
-            <div class="row">
-            </div>
+    <div style="width: 60%; height: 86vh; display:flex; justify-content:center; margin-top:100px; flex-direction: column; border: none;" class="container">
+
             @if(session('status'))
             <div class="alert alert-success mb-1 mt-1">
                 {{ session('status') }}
@@ -50,11 +51,10 @@
                         </div>
                         <div style="justify-content: space-between; display: flex;">
                             <a class="btn btn-primary" href="{{ route('categories.index') }}" enctype="multipart/form-data">Back</a>
-                            <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                            <button style="margin: 10px;" type="submit" class="btn btn-primary ml-3">Submit</button>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
     </div>
 </body>

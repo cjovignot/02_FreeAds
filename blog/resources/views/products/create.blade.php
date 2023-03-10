@@ -1,24 +1,17 @@
+@extends('layouts.freeadds_layout')
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Create product</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Create Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
+<h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">CREATE PRODUCT</h4>
+
 <body>
-    <div>
-        <div>
-            <div>
-                <div>
-                    <h2>Add Product</h2>
-                </div>
-                <div>
-                    <a href="{{ route('products.index') }}"> Back</a>
-                </div>
-            </div>
-        </div>
+    <div style="width: 60%; height: 86vh; display:flex; justify-content:center; margin-top:100px; flex-direction: column; border: none;" class="container">
         @if(session('status'))
         <div>
             {{ session('status') }}
@@ -78,7 +71,7 @@
                         @csrf
             
                         <div>
-                            <label class="form-label" for="inputImage">Select Image:</label>
+                            <strong>Select a picture :</strong>
                             <input 
                                 type="file" 
                                 name="image" 
@@ -91,7 +84,10 @@
                         </div>
                 </div>
 
-                <button type="submit">Submit</button>
+                <div style="justify-content: space-between; display: flex;">
+                    <a class="btn btn-primary" href="{{ route('products.index') }}" enctype="multipart/form-data">Back</a>
+                    <button style="margin: 10px;" type="submit" class="btn btn-primary ml-3" type="submit">Submit</button>
+                </div>
             </div>
         </form>
     </div>
