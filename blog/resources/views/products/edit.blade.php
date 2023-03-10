@@ -1,24 +1,17 @@
+@extends('layouts.freeadds_layout')
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Product Form</title>
+    <title>Edit product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
+<h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">EDIT PRODUCT</h4>
+
 <body>
-    <div>
-        <div>
-            <div>
-                <div>
-                    <h2>Edit Product</h2>
-                </div>
-                <div>
-                    <a href="{{ route('products.index') }}" enctype="multipart/form-data">
-                        Back</a>
-                </div>
-            </div>
-        </div>
+    <div style="width: 60%; height: 86vh; display:flex; justify-content:center; margin-top:100px; flex-direction: column; border: none;" class="container">
         @if(session('status'))
         <div>
             {{ session('status') }}
@@ -33,7 +26,7 @@
                         <strong>Product Name :</strong>
                         <input type="text" name="name" value="{{ $product->name }}" placeholder="Product name">
                         @error('name')
-                        <div>{{ $message }}</div>
+                            <div>{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -49,13 +42,16 @@
                 <div>
                     <div>
                         <strong>Product Price :</strong>
-                        <input type="integer" name="price" value="{{ $product->price }}" placeholder="Product Price">
+                        <input type="integer" name="price" value="{{ $product->price }}" placeholder="Product Price"> €
                         @error('price')
-                        <div>{{ $message }}</div>
+                            <div>{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
-                <button type="submit">Submit</button>
+                <div style="justify-content: space-between; display: flex;">
+                    <a class="btn btn-primary" href="{{ route('products.index') }}" enctype="multipart/form-data">Back</a>
+                    <button style="margin: 10px;" type="submit" class="btn btn-primary ml-3">Submit</button>
+                </div>
             </div>
         </form>
     </div>
