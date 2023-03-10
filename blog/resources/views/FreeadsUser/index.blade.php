@@ -1,13 +1,10 @@
 @extends('layouts.freeadds_layout')
-
-@section('content')
-
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CRUD User</title>
+    <title>Freeads Users</title>
 </head>
 
 <h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">Freeads USERS</h4>
@@ -36,39 +33,25 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <th>id</th>
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>User Password</th>
-                        <th>User Phone number</th>
-                        <th>Admin</th>
-                        <th width="280px">Action</th>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->password }}</td>
+                        <td>{{ $user->phone_number }}</td>
+                        <td>{{ $user->admin }}</td>
+                        <td>
+                            <form action="{{ route('users.destroy',$user->id) }}" method="Post">
+                                <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->password }}</td>
-                            <td>{{ $user->phone_number }}</td>
-                            <td>{{ $user->admin }}</td>
-                            <td>
-                                <form action="{{ route('users.destroy',$user->id) }}" method="Post">
-                                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                </tbody>
-            </table>
-            {!! $users->links() !!}
-        </div>
-        @endsection
+                    @endforeach
+            </tbody>
+        </table>
+        {!! $users->links() !!}
     </div>
 </body>
 </html>
