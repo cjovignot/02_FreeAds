@@ -1,12 +1,11 @@
 @extends('layouts.freeadds_layout')
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
-
 
 <h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">CREATE USER</h4>
 

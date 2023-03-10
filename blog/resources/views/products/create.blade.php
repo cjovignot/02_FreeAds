@@ -50,7 +50,7 @@
                 <div>
                     <div>
                         <strong>Product Category :</strong>
-                        <select name="category_id">
+                        <select class="browser-default" name="category_id">
                             <option value="0"> -- Choose a category -- </option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
