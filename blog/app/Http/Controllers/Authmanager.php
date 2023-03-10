@@ -49,13 +49,17 @@ class Authmanager extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'passwordverify' => 'required',
+            'phone_number' => 'required',
         ]);
 
        
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+        $data['phone_number'] = $request->phone_number;
+        $date['admin'] = '0';
 
         $user = User::create($data);
         if(!$user) {
