@@ -81,7 +81,10 @@ class ProductController extends Controller
         {
             $products = Product::all();
             $categories = Categories::all();
-            return view('products.edit',compact('product', 'products', 'categories'));
+            
+            $categories = Categories::all()->where('is_sub', '=', '0');
+            $sub_categories = Categories::all()->where('is_sub', '=', '1')->where('parent_id', '!=', '0');
+            return view('products.edit',compact('product', 'products', 'categories', 'sub_categories'));
         }
     
         /**

@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <strong>Category parent_id :</strong>
                             <select class="browser-default" name="parent_id">
-                                <option value="0" disabled selected> -- Choose your option -- </option>
+                                <option value="0" selected> -- Choose your option -- </option>
                                 @foreach ($categories as $filtercategory)
                                     @if ($category['id'] != $filtercategory['id'])
                                         <option value="{{$filtercategory->id}}">{{$filtercategory->name}}</option>
