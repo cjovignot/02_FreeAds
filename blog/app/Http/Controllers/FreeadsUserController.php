@@ -5,6 +5,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 
 
@@ -54,9 +55,10 @@ class FreeadsUserController extends Controller
         $data['password'] = Hash::make($request->password);
         $data['admin'] = '0';
 
+    
         
         //User::create($request->post());
-        $user = User::create($data);
+        
         // if(!$user) {
 
         //     return redirect(route('registration'))->with("error", "Registration failed, try again.");

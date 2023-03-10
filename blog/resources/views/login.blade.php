@@ -1,7 +1,15 @@
-@extends('layout')
-@section('title', 'Registration')
-@section('content')
-    <div class="container">
+@extends("layouts.freeadds_layout")
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User login</title>
+</head>
+<body>
         <div>
             @if($errors->any())
                 <div>
@@ -26,18 +34,21 @@
         @endif
         <form action="{{route('login.post')}}" method="POST">
             @csrf
-            <div>
+            <div class="input-field col s12">
                 <label for="email">Email address</label>
                 <input type="email" name="email">
             </div>
-            <div>
+            <div class="input-field col s12">
                 <label for="password">Password</label>
                 <input type="password" name="password">
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button class="btn waves-effect waves-light" type="submit">Submit</button>
             </div>
         </form>
 
-    </div>
-@endsection
+</body>
+</html>
+   
+
+    

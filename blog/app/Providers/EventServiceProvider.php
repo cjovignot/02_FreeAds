@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,7 +27,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+       
     }
 
     /**
@@ -36,3 +38,28 @@ class EventServiceProvider extends ServiceProvider
         return false;
     }
 }
+
+
+// use App\Notifications\VerifyEmailNotification;
+// use Illuminate\Auth\Events\Registered;
+// use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+
+// class EventServiceProvider extends ServiceProvider
+// {
+//     protected $listen = [
+//         Registered::class => [
+//             SendEmailVerificationNotification::class,
+//         ],
+//     ];
+
+//     public function boot()
+//     {
+//         VerifyEmailNotification::createUrlUsing(function ($notifiable) {
+//             return URL::temporarySignedRoute(
+//                 'verification.verify',
+//                 now()->addMinutes(60),
+//                 ['id' => $notifiable->getKey()]
+//             );
+//         });
+//     }
+// }
