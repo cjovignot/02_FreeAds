@@ -1,22 +1,18 @@
+@extends('layouts.freeadds_layout')
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel 9 CRUD Tutorial Example</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <title>Freeads Users</title>
 </head>
+
+<h4 style="position: fixed; z-index: 999; left: 20px; top: 8px; color: white;">Freeads USERS</h4>
+
 <body>
-    <div class="container mt-2">
-        <div class="row">
-            <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Laravel 9 CRUD Example Tutorial</h2>
-                </div>
-                <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('users.create') }}"> Create User</a>
-                </div>
-            </div>
-        </div>
+    <div style="display:flex; justify-content:center; width:100%; margin-top:100px; flex-direction: column; border: none;" class="container">
+    @include('layouts.adminmenu')  
+    <a class="btn btn-success" href="{{ route('users.create') }}">Create User</a>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>

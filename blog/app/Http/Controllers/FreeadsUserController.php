@@ -55,8 +55,8 @@ class FreeadsUserController extends Controller
         $data['admin'] = '0';
 
         
-        //User::create($request->post());
-        $user = User::create($data);
+        User::create($request->post());
+        // $user = User::create($data);
         // if(!$user) {
 
         //     return redirect(route('registration'))->with("error", "Registration failed, try again.");

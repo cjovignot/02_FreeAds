@@ -56,6 +56,7 @@ class Authmanager extends Controller
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+        $data['admin'] = '0';
 
         $user = User::create($data);
         if(!$user) {
