@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 use App\Http\Controllers\NewHomeController;
+use Illuminate\Auth\Events\Registered;
 
 class Authmanager extends Controller
 {
@@ -63,13 +64,16 @@ class Authmanager extends Controller
         $data['admin'] = '0';
 
         $user = User::create($data);
+
+        event(new Registered($user));
+
+
         if(!$user) {
 
             return redirect(route('registration'))->with("error", "Registration failed, try again.");
         }
 
-        return redirect(route('login'))->with("success", "Registration success, login to access the app");
-
+        return redirect(route('login'))->with('success', 'Your account has been created. Please check your email to verify your account.');
     }
 
     public function logout() {
@@ -78,3 +82,24 @@ class Authmanager extends Controller
         return redirect(route('login'));
     }
 }
+
+
+// use Illuminate\Auth\Events\Registered;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
+
+// class RegisterController extends Controller
+// {
+//     public function create(Request $request)
+//     {
+//         $user = User::create([
+//             'name' => $request->input('name'),
+//             'email' => $request->input('email'),
+//             'password' => Hash::make($request->input('password')),
+//         ]);
+
+//         event(new Registered($user));
+
+//         return redirect('/login')->with('success', 'Your account has been created. Please check your email to verify your account.');
+//     }
+// }
