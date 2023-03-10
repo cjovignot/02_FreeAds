@@ -57,7 +57,7 @@ class FreeadsUserController extends Controller
 
     
         
-        //User::create($request->post());
+        User::create($request->post());
         
         // if(!$user) {
 

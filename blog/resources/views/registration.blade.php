@@ -1,5 +1,4 @@
 @extends("layouts.freeadds_layout")
-
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <html lang="en">
@@ -11,9 +10,10 @@
 </head>
 
 
-<h4 style="position:fixed; z-index:999; left:20px; top:8px; color:white"> User Registration </h4>
+<h4 style="position:fixed; z-index:999; left:20px; top:8px; color:white">User Registration</h4>
 <body>
-    
+    <div style="display:flex; justify-content:center; width:100%; margin-top:100px; flex-direction: column; border: none;" class="container">
+        @include('layouts.adminmenu') 
 
         <div>
             @if($errors->any())
